@@ -2,10 +2,18 @@ import { Resend } from "resend";
 import { NextResponse } from "next/server";
 import { contactFormSchema } from "@/lib/schemas";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: Request) {
   try {
+    if (!process.env.RESEND_API_KEY) {
+      console.error("Missing RESEND_API_KEY environment variable");
+      return NextResponse.json(
+        { error: "Email service not configured." },
+        { status: 500 },
+      );
+    }
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
     const body = await request.json();
     const parsed = contactFormSchema.safeParse(body);
 
