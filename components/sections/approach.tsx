@@ -15,13 +15,7 @@ export function Approach() {
   return (
     <section className="bg-surface py-16 md:py-28 lg:py-36">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionHeading
-          eyebrow={approach.eyebrow}
-          headline={approach.headline}
-          subtext={approach.subtext}
-          cta={approach.cta}
-          tone="light"
-        />
+        <SectionHeading content={approach} tone="light" />
 
         <div className="mt-16 grid gap-x-6 gap-y-6 sm:mt-20 md:grid-cols-2">
           {approach.phases.map((phase, i) => {

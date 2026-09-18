@@ -44,25 +44,42 @@ export default function AboutPage() {
         <div className="mx-auto max-w-5xl px-6">
           <div className="grid gap-10 md:grid-cols-[180px_1fr] md:gap-16">
             <Reveal>
-              <span className="font-mono text-xs text-muted-slate tracking-wider md:sticky md:top-32 md:block">
-                Our story
-              </span>
+              <div className="flex items-center gap-3 md:sticky md:top-32">
+                <span className="h-8 w-px bg-brand/40" />
+                <span className="font-mono text-xs uppercase tracking-[0.2em] text-brand">
+                  Our story
+                </span>
+              </div>
             </Reveal>
 
             <div>
               <Reveal>
-                <p className="text-2xl md:text-3xl font-medium text-navy-deep leading-snug max-w-2xl">
-                  {about.intro}
-                </p>
-                <p className="mt-6 text-lg text-muted-slate leading-relaxed max-w-xl">
+                <div className="relative">
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -top-10 -left-3 select-none font-serif text-8xl text-navy-deep/[0.06]"
+                  >
+                    &ldquo;
+                  </span>
+                  <p className="relative max-w-2xl text-2xl font-medium leading-snug text-navy-deep md:text-3xl">
+                    {about.intro}
+                  </p>
+                </div>
+                <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-slate">
                   {about.body}
                 </p>
               </Reveal>
 
               <Reveal delay={0.15}>
-                <div className="mt-16 flex flex-col gap-6 border-t border-navy-deep/15 pt-10 sm:flex-row sm:items-start">
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-navy-deep font-mono text-sm text-text-invert">
-                    {getInitials(about.founder.name)}
+                <div className="mt-16 flex flex-col gap-6 border-t border-navy-deep/10 pt-10 sm:flex-row sm:items-start">
+                  <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full ring-2 ring-brand/20 shadow-[0_8px_20px_-6px_rgba(0,74,173,0.35)]">
+                    <Image
+                      src="/images/founder.png"
+                      alt={about.founder.name}
+                      fill
+                      sizes="56px"
+                      className="object-cover"
+                    />
                   </div>
                   <div>
                     <h2 className="text-2xl font-medium text-navy-deep">
@@ -71,14 +88,14 @@ export default function AboutPage() {
                     <p className="text-sm text-muted-slate">
                       {about.founder.role}
                     </p>
-                    <p className="mt-4 text-muted-slate leading-relaxed max-w-xl">
+                    <p className="mt-4 max-w-xl leading-relaxed text-muted-slate">
                       {about.founder.bio}
                     </p>
                     <div className="mt-4 flex flex-wrap gap-2">
                       {about.founder.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="rounded-full border border-brand/25 bg-brand/5 px-3 py-1 font-mono text-xs text-brand"
+                          className="rounded-full border border-brand/20 bg-brand/[0.06] px-3 py-1 font-mono text-xs text-brand transition-colors hover:bg-brand/10"
                         >
                           {tag}
                         </span>

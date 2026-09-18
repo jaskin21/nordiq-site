@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Reveal } from "@/components/motion/reveal";
 
-type SectionHeadingProps = {
+type SectionHeadingContent = {
   eyebrow: string;
   headline: string;
   subtext?: string;
@@ -12,42 +12,46 @@ type SectionHeadingProps = {
     label: string;
     href: string;
   };
+};
+
+type SectionHeadingProps = {
+  /** Pass the whole content object from your content file, e.g. `content={approach}`. */
+  content: SectionHeadingContent;
   /** Dark section (e.g. navy-deep bg with texture) vs light (bg-surface). Defaults to "light". */
   tone?: "light" | "dark";
-  /** Cap the subtext line length. Defaults to true. */
-  constrainWidth?: boolean;
   className?: string;
 };
 
 export function SectionHeading({
-  eyebrow,
-  headline,
-  subtext,
-  cta,
+  content: { eyebrow, headline, subtext, cta },
   tone = "light",
-  constrainWidth = true,
   className,
 }: SectionHeadingProps) {
   const isDark = tone === "dark";
 
   return (
-    <div className={cn(constrainWidth && "max-w-2xl", className)}>
+    <div className={cn("w-full", className)}>
       <Reveal>
-        <span
-          className={cn(
-            "inline-flex items-center gap-2 rounded-full border px-3 py-1 font-mono text-xs tracking-wider",
-            isDark
-              ? "border-soft-white/15 bg-soft-white/5 text-muted-slate"
-              : "border-navy-deep/10 bg-white/60 text-navy-deep/70",
-          )}
-        >
-          <span className="size-1.5 rounded-full bg-brand" />
-          {eyebrow}
-        </span>
+        <div className="flex items-center gap-4">
+          <span
+            className={cn(
+              "shrink-0 font-mono text-xs uppercase tracking-[0.2em]",
+              isDark ? "text-brand-light" : "text-brand",
+            )}
+          >
+            {eyebrow}
+          </span>
+          <span
+            className={cn(
+              "h-px flex-1",
+              isDark ? "bg-soft-white/10" : "bg-navy-deep/10",
+            )}
+          />
+        </div>
 
         <h2
           className={cn(
-            "mt-4 text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight leading-tight",
+            "mt-5 text-xl font-medium tracking-tight leading-[1.1]",
             isDark ? "text-text-invert" : "text-navy-deep",
           )}
         >
@@ -55,13 +59,7 @@ export function SectionHeading({
         </h2>
 
         {subtext && (
-          <p
-            className={cn(
-              "mt-4 text-base leading-relaxed md:text-lg",
-              constrainWidth && "max-w-xl",
-              isDark ? "text-muted-slate" : "text-muted-slate",
-            )}
-          >
+          <p className="mt-4 text-base leading-relaxed text-muted-slate">
             {subtext}
           </p>
         )}
