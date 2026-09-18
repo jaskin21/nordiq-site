@@ -24,9 +24,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased bg-navy-deep`}
     >
-      <body className="antialiased">
+      <body className="antialiased bg-navy-deep min-h-screen">
         <Preloader />
         <Header />
         <main>{children}</main>
