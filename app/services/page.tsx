@@ -3,6 +3,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { Services } from "@/components/sections/services";
 import { WorkingWith } from "@/components/sections/working-with";
 import { CtaBand } from "@/components/sections/cta-band";
+import { Ticker } from "@/components/sections/ticker";
 
 export default function ServicesPage() {
   return (
@@ -39,6 +40,7 @@ export default function ServicesPage() {
       </section>
 
       <Services />
+      <Ticker />
       <WorkingWith />
       <CtaBand />
     </>

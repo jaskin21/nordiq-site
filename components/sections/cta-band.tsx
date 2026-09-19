@@ -1,24 +1,22 @@
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/motion/reveal";
 import { ctaBand } from "@/content/site";
 
 export function CtaBand() {
   return (
     <section className="relative overflow-hidden bg-navy-deep py-28 md:py-36">
-      {/* Shared wire/hex texture, very dimmed — ties this band to the rest of the site */}
-      <div className="absolute inset-0" aria-hidden="true">
-        <Image
-          src="/textures/network-texture.jpg"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover object-[80%_30%] opacity-25"
-        />
-        <div className="absolute inset-0 bg-navy-deep/75" />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy-deep via-navy-deep/60 to-navy-deep" />
-      </div>
+      {/* Network/plexus background, pinned to the viewport so it stays put while content scrolls over it */}
+      <div
+        className="absolute inset-0 bg-fixed bg-cover bg-center opacity-90"
+        style={{ backgroundImage: "url(/images/network-plexus.jpg)" }}
+        aria-hidden="true"
+      />
+      <div className="absolute inset-0 bg-navy-deep/40" aria-hidden="true" />
+      <div
+        className="absolute inset-0 bg-gradient-to-b from-navy-deep/20 via-navy-deep/50 to-navy-deep"
+        aria-hidden="true"
+      />
 
       <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
         <Reveal>
@@ -36,26 +34,15 @@ export function CtaBand() {
             {ctaBand.subtext}
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
+          <div className="mt-10 flex justify-center">
             <Link
               href={ctaBand.cta.href}
-              className="group inline-flex items-center gap-2 rounded-full bg-brand px-8 py-4 text-base font-medium text-text-invert shadow-lg shadow-brand/30 transition-all duration-300 hover:bg-brand-light hover:shadow-xl hover:shadow-brand-light/40 hover:scale-[1.03]"
+              className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-brand px-8 py-4 text-base font-medium text-text-invert shadow-lg shadow-brand/30 transition-all duration-300 hover:bg-brand-light hover:shadow-xl hover:shadow-brand-light/40 hover:scale-[1.03]"
             >
               <span>{ctaBand.cta.label}</span>
               <ArrowRight
                 size={18}
                 className="transition-transform duration-300 group-hover:translate-x-1"
-              />
-            </Link>
-
-            <Link
-              href="/contact"
-              className="group inline-flex items-center gap-1.5 text-base font-medium text-text-invert/80 transition-colors duration-300 hover:text-text-invert"
-            >
-              <span>Contact us</span>
-              <ArrowUpRight
-                size={16}
-                className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               />
             </Link>
           </div>

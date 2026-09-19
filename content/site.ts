@@ -7,7 +7,7 @@ export const hero = {
   headline: ["We start with the business.", "Not the technology."],
   subtext:
     "NordIQ identifies where AI can create real business value and takes the right first steps — from analysis to implementation.",
-  cta: { label: "Discuss your business", href: "/contact" },
+  cta: { label: "Let's Talk", href: "/contact" },
 };
 
 export const approach = {
@@ -15,7 +15,7 @@ export const approach = {
   headline: "From first question to measurable result.",
   subtext:
     "We keep the line between the problem, the effort, and the outcome visible at every stage. The depth of the process matches what the decision actually calls for.",
-  cta: { label: "Discuss your business", href: "/contact" },
+  cta: { label: "Send a Message", href: "/contact" },
   phases: [
     {
       number: "01",
@@ -54,7 +54,7 @@ export const ctaBand = {
   headline: "Ready to find out where AI actually helps your business?",
   subtext:
     "A short conversation is enough to know if it's worth going further.",
-  cta: { label: "Discuss your business", href: "/contact" },
+  cta: { label: "Talk to Us", href: "/contact" },
 };
 
 export const contact = {

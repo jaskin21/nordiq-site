@@ -91,8 +91,10 @@ export function WhyNordiq() {
                   <span
                     aria-hidden="true"
                     className={cn(
-                      "pointer-events-none absolute -top-10 select-none font-serif text-8xl font-medium text-brand/[0.14] md:-top-14 md:text-9xl",
-                      alignRight ? "-right-1 md:right-0" : "-left-1 md:left-0",
+                      "pointer-events-none absolute -top-16 select-none font-serif text-[11rem] font-semibold leading-none text-brand/[0.2] md:-top-32 md:text-[18rem]",
+                      alignRight
+                        ? "-right-2 md:-right-4"
+                        : "-left-2 md:-left-4",
                     )}
                   >
                     {point.title.charAt(0)}
