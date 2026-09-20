@@ -38,9 +38,9 @@ export default function ServicesPage() {
           </Reveal>
         </div>
       </section>
+      <Ticker />
 
       <Services />
-      <Ticker />
       <WorkingWith />
       <CtaBand />
     </>

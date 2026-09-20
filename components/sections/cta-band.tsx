@@ -5,13 +5,14 @@ import { ctaBand } from "@/content/site";
 
 export function CtaBand() {
   return (
-    <section className="relative overflow-hidden bg-navy-deep py-28 md:py-36">
+    <section className="relative bg-navy-deep py-28 md:py-36">
       {/* Network/plexus background, pinned to the viewport so it stays put while content scrolls over it */}
-      <div
-        className="absolute inset-0 bg-fixed bg-cover bg-center opacity-90"
-        style={{ backgroundImage: "url(/images/network-plexus.jpg)" }}
-        aria-hidden="true"
-      />
+      <div className="absolute inset-0 [clip-path:inset(0)]" aria-hidden="true">
+        <div
+          className="fixed inset-x-0 top-0 h-[100lvh] bg-cover bg-center bg-no-repeat opacity-90"
+          style={{ backgroundImage: "url(/images/network-plexus.jpg)" }}
+        />
+      </div>
       <div className="absolute inset-0 bg-navy-deep/40" aria-hidden="true" />
       <div
         className="absolute inset-0 bg-gradient-to-b from-navy-deep/20 via-navy-deep/50 to-navy-deep"
